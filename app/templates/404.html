@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block head %}
+
+    {{ super() }}
+    <title>
+        {% block title %}Error 404{% endblock title %}
+    </title>
+    <link rel="stylesheet", href="{{ url_for('static', filename='css/main.css') }}">
+
+{% endblock head %}
+
+
+{% block content %}
+
+    <h2>Lo sentimos, no encontramos lo que buscas :(</h2>
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+
+    {{ super() }}
+    <title>
+        {% block title %}Todas las personas{% endblock title %}
+    </title>
+    <link rel="stylesheet", href="{{ url_for('static', filename='css/main.css') }}">
+
+{% endblock head %}
+
+
+{% block content %}
+
+    <h1>Personas regitradas</h1>
+
+    <table class="table">
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Ciudad</th>
+        </tr>
+        {% for consulta in consultas %}
+            <tr>
+                <td>{{ consulta.nombre }}</td>
+                <td>{{ consulta.email }}</td>
+                <td>{{ consulta.ciudad }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+       <br>
+        ¿Desea registrar más personas?
+        <br>
+        <br>
+        <a href="{{ url_for('form_person') }}" 
+            class="btn d-inline-block btn btn-primary">
+            Registrar personas
+        </a>
+    </div><div class="col-lg-6" id="label" text-center>
+     
+
+{% endblock content %}

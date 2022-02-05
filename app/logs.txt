@@ -1,0 +1,2 @@
+nombre: Nombre de prueba, email: flaskapp@gmail.com, ciudad: Washington, ;
+nombre: Nombre de prueba 2, email: nombre_prueba2@hotmail.com, ciudad: Bogota, ;

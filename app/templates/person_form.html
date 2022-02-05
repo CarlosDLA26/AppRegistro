@@ -1,0 +1,44 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block head %}
+
+    {{ super() }}
+    <title>
+        {% block title %}Registrar persona{% endblock title %}
+    </title>
+    <link rel="stylesheet", href="{{ url_for('static', filename='css/main.css') }}">
+
+{% endblock head %}
+
+{% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true)  %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismiss">
+                <button type="button" 
+                        data-dismiss="alert"
+                        class="close">&times;</button>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endwith %}
+
+    <div>
+        <h2>Registrar persona</h2>
+        {{ wtf.quick_form(person_form) }}
+    </div>
+
+    <div class="col-lg-6" id="label" text-center>
+        <br>
+        ¿Desea ver a las personas registradas?
+        <br>
+        <br>
+        <a href="{{ url_for('show_people') }}" 
+            class="btn d-inline-block btn btn-primary">
+            Ver datos
+        </a>
+    </div>
+
+{% endblock content %}
