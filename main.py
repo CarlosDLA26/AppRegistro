@@ -29,6 +29,7 @@ def index():
     response = make_response(redirect('form_user'))
     return response
 
+
 @app.route("/form_user", methods=['GET', 'POST'])
 def form_person():
     """formulario para que la persona registre
@@ -71,6 +72,7 @@ def form_person():
 
     return render_template('person_form.html', **context)
 
+
 @app.route('/show_people')
 def show_people():
     """Mostrar todas las personas que se han
@@ -87,6 +89,11 @@ def show_people():
 
     return render_template('show_all_people.html', **context)
 
+
 @app.errorhandler(404)
 def error_404(error):
     return render_template('404.html', error=error)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
